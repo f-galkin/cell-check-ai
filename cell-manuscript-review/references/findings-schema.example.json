@@ -1,0 +1,58 @@
+{
+  "_comment": "This is a sample showing the JSON schema for build_report.js. Real Claude usage would produce findings by combining the mechanical output of analyze.py with judgment-based findings from reading the manuscript. Remove the _comment fields when using as a template.",
+
+  "manuscript_title": "Full title of the manuscript as it appears in the file",
+  "revision_number": 1,
+
+  "executive_summary": {
+    "_comment": "Three short paragraphs summarising the state of the manuscript.",
+    "good_state": "Paragraph describing what's in good shape, with specific metrics (title length, word count, etc.).",
+    "blockers": "Paragraph introducing the critical issues that need to be fixed before submission.",
+    "blocker_list": [
+      "Short description of first critical issue",
+      "Short description of second critical issue",
+      "Short description of third critical issue"
+    ],
+    "revision_note": "Optional paragraph used only for revision reviews summarising what was fixed since the previous review."
+  },
+
+  "fixed_since_previous": [
+    "Only used for revision reviews. Each string is one bullet describing a resolved issue from the previous review."
+  ],
+
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "title": "Short title visible at the top of the detailed entry (1 line)",
+      "summary": "One-line version for the at-a-glance table — should be different from title; describe the symptom",
+      "location": "Section reference using § for subsections (e.g., 'STAR Methods § LLM inference')",
+      "issue": "Plain text describing the problem in detail. Include a verbatim quote of the problematic text when it is short enough to fit. Explain WHY this is an issue if not obvious.",
+      "action": "Concrete edit the user should make. Should be specific enough to apply directly, not a vague suggestion. If verification is needed, say so."
+    },
+    {
+      "severity": "MAJOR",
+      "title": "Another finding",
+      "summary": "Different one-liner for table",
+      "location": "Where it is in the manuscript",
+      "issue": "What's wrong",
+      "action": "What to do about it"
+    }
+  ],
+
+  "separate_uploads": [
+    {
+      "title": "Highlights and eTOC blurb (single Word file)",
+      "description": "Specific guidance for this manuscript on what to prepare."
+    },
+    {
+      "title": "Graphical abstract",
+      "description": "Mandatory for Cell. 1200 × 1200 pixels, TIFF/PDF/JPG."
+    }
+  ],
+
+  "checklist": [
+    {"priority": "critical", "text": "Critical action item."},
+    {"priority": "major", "text": "Major formatting fix."},
+    {"priority": "separate", "text": "Separate upload item."}
+  ]
+}
