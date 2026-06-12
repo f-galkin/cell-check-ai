@@ -61,6 +61,33 @@ python docx-to-markdown/scripts/docx_to_md.py INPUT.docx OUTPUT.md --emphasis --
 
 `cell-manuscript-review` is a **formatting and submission-readiness** review — it does not peer-review the science, edit the manuscript, or write the Highlights / graphical abstract / Declaration of Interests for you. It is specific to the journal *Cell* (not the other Cell Press titles).
 
+## Templates
+
+[`templates/STAR-Methods-article-template.docx`](templates/STAR-Methods-article-template.docx) is the official Cell Press STAR Methods article template, included as a starting point for authors (source and attribution in [`templates/NOTICE.md`](templates/NOTICE.md)). It is Cell Press property and is **not** covered by this repository's MIT license.
+
+## Official Cell author resources
+
+The skill's checklists distil these pages; consult them directly for the authoritative requirements. Links verified **12 June 2026**:
+
+- **Information for authors (Cell):** https://www.cell.com/cell/information-for-authors
+- **Journal policies (Cell):** https://www.cell.com/cell/information-for-authors/journal-policies
+- **Article templates:** https://www.cell.com/information-for-authors/article-templates
+- **STAR Methods author guide:** https://www.cell.com/information-for-authors/star-authors-guide
+- **STAR Methods supplemental information:** https://www.cell.com/information-for-authors/star-supplemental-information
+- **Declaration of interests (policy):** https://www.cell.com/declaration-of-interests
+- **Declaration of interests form (PDF):** https://www.cell.com/pb/assets/raw/shared/forms/di_form.pdf
+
+## Keeping current with Cell's requirements
+
+> [!IMPORTANT]
+> These skills encode Cell's Final File Requirements and STAR Methods template **as of June 2026**. Cell Press revises its author guidelines periodically. If Cell changes its formatting requirements, the skills will not know — update them to match:
+> - `cell-manuscript-review/references/ffc-checklist.md` — the section-by-section rule set;
+> - `cell-manuscript-review/references/template-structure.md` — the required section order and STAR Methods subsections;
+> - `cell-manuscript-review/scripts/analyze.py` — any hard-coded limits (title 145 chars, summary 150 words, main text 7,000 words, highlights 85 chars) and the `REQUIRED_SECTIONS` / `REQUIRED_STAR_SUBSECTIONS` lists;
+> - `templates/STAR-Methods-article-template.docx` — replace with the current Cell template.
+>
+> Always confirm a review against the live pages above before relying on it for an actual submission.
+
 ## License
 
 [MIT](LICENSE). The `cell-manuscript-review` checklists encode the publicly documented Cell Final File Requirements and STAR Methods article template.

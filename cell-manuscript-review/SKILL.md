@@ -131,6 +131,19 @@ Read these as needed:
 - **docx-to-markdown skill** — install alongside this skill (same `skills/` root) to enable extraction without the `extract-text` CLI.
 - **Node.js + `docx`** — optional; only for `build_report.js`.
 
+## Official Cell references and freshness
+
+The checklists in `references/` distil Cell's publicly documented requirements. The authoritative sources (verified 12 June 2026) are:
+
+- Information for authors (Cell) — https://www.cell.com/cell/information-for-authors
+- Journal policies (Cell) — https://www.cell.com/cell/information-for-authors/journal-policies
+- Article templates — https://www.cell.com/information-for-authors/article-templates
+- STAR Methods author guide — https://www.cell.com/information-for-authors/star-authors-guide
+- STAR Methods supplemental information — https://www.cell.com/information-for-authors/star-supplemental-information
+- Declaration of interests (policy + PDF form) — https://www.cell.com/declaration-of-interests
+
+**These requirements can change.** Cell Press revises its guidelines periodically, and this skill will not know when it does. If a review touches a requirement that may have moved (word/character limits, required sections, STAR Methods subsections, reference format), confirm it against the live pages above. When Cell changes its formatting, update `references/ffc-checklist.md`, `references/template-structure.md`, and the hard-coded limits and `REQUIRED_SECTIONS` / `REQUIRED_STAR_SUBSECTIONS` lists in `scripts/analyze.py`. Tell the user when a finding rests on a limit that may have changed since the date above.
+
 ## Tone and language
 
 The user is typically a senior researcher preparing for submission. Match that tone:
