@@ -7,14 +7,13 @@ Two [Claude Code](https://claude.com/claude-code) skills for preparing and conve
 | [`cell-manuscript-review`](cell-manuscript-review) | Audits a `.docx` manuscript for **Cell** submission readiness against the Final File Requirements and the STAR Methods template, then produces a severity-coded Word review report. |
 | [`docx-to-markdown`](docx-to-markdown) | Converts any Word `.docx` to clean Markdown with `python-docx` only. Used standalone, or as the cross-platform extraction fallback for the review skill. |
 
-## Why this exists
+## Features
 
-The original review workflow assumed an Anthropic Linux environment: it shelled out to the `extract-text` CLI for parsing and to a Node.js + `docx` builder for the report. Neither is present on a typical Windows/macOS setup, so the workflow failed at the first step. This repo makes both skills self-contained on a plain Python install:
-
-- **Extraction** prefers `extract-text` when available and otherwise falls back to the `docx-to-markdown` converter.
-- **The report builder** ships in both Node (`build_report.js`) and Python (`build_report.py`) flavours, sharing one JSON schema.
-- **The word-count check** was corrected: it now reports the precise Introduction-through-Discussion count (the figure the 7,000-word limit applies to) rather than a flat pre-References count that swept in figure legends, tables, and back matter.
-- **A run-level style helper** (`check_style.py`) was added for checks the text-based analyzer structurally cannot do — gene-symbol / organism-binomial italicisation and the precise word count.
+- **Runs anywhere Python runs** — no Node.js or Linux-only CLI required. The review skill extracts text with the Anthropic `extract-text` CLI when it is present, and otherwise falls back to the bundled `docx-to-markdown` converter.
+- **Mechanical checks** — title and summary length, keyword count, in-text-citation ↔ reference cross-check, duplicate DOIs, required sections and their order, and leftover-template residue.
+- **Precise main-text word count** — measures Introduction through Discussion (the text Cell's 7,000-word limit applies to), excluding figure legends, tables, and back matter.
+- **Run-level style checks** — gene-symbol and organism-binomial italicisation, which a text-only pass cannot see.
+- **Word report builder in two flavours** — Python (`build_report.py`, no Node) and Node (`build_report.js`), sharing one JSON schema; the output is a severity-coded `.docx` (critical / major / minor / info).
 
 ## Install
 
